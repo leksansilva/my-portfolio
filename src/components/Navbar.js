@@ -36,6 +36,14 @@ const MenuItem = styled.li`
   font-style: 20px;
   font-weight: bold;
   color: grey;
+  position: relative;
+  top: 0;
+  cursor: pointer;
+  :hover{
+    color: #0059B3;
+   
+    top: -2px;
+  }
 `;
 
 const Button = styled.button`
@@ -57,11 +65,11 @@ const Navbar = () => {
             Ever<span>Never</span>
           </Logo>
           <Menu>
-            <MenuItem>Home</MenuItem>
+            <MenuItem>Início</MenuItem>
             <MenuItem>Sobre</MenuItem>
             <MenuItem>Serviços</MenuItem>
             <MenuItem>Projetos</MenuItem>
-            <MenuItem>Preços</MenuItem>
+            <MenuItem>Portfólio</MenuItem>
             <MenuItem>Contato</MenuItem>
           </Menu>
         </Left>

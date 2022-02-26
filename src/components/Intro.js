@@ -27,7 +27,7 @@ const Left = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 20px;
-  ${ Emerge}
+  ${Emerge}
 `;
 
 const Title = styled.h1`
@@ -39,6 +39,10 @@ const Description = styled.p`
   width: 60%;
   font-size: 20px;
   text-align: justify;
+  font-weight: 500;
+  a {
+    color: black;
+  }
 `;
 
 const Info = styled.div`
@@ -63,19 +67,37 @@ const Right = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  margin-top:63px;
+  margin-top: 63px;
 `;
 
 const Intro = () => {
   return (
     <Container>
       <Left>
-        <Title>Bem Vindo!</Title>
+        <Title>Bem vindo!</Title>
         <Description>
-          Olá! Eu sou Alex Silva, a pessoa quem desenvolveu esse site utilizando
-          React, uma biblioteca do JavaScript, que com o pacote Styled Components
-          permitiu a escrita de CSS em JavaScript usando Tagged Templates
-          Literals
+          Olá! Eu sou Alex Silva, a pessoa quem desenvolveu esse site utilizando{" "}
+          <a target="_blank" href="https://pt-br.reactjs.org/" rel="noreferrer">
+            React
+          </a>
+          , uma biblioteca do JavaScript , com o pacote{" "}
+          <a
+            target="_blank"
+            href="https://styled-components.com/"
+            rel="noreferrer"
+          >
+            Styled Components
+          </a>{" "}
+          que permite a escrita de CSS em JavaScript usando Tagged Templates
+          Literals e o pacote{" "}
+          <a
+            target="_blank"
+            href="https://reactrouter.com/"
+            rel="noreferrer"
+          >
+            React Router
+          </a>{" "}
+          que facilita a criação de várias páginas e a navegação no React.
         </Description>
         <Info>
           <Button>OUTROS PROJETOS</Button>
