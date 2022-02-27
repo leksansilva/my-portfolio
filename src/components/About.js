@@ -91,7 +91,7 @@ const About = () => {
         <CardDescription>
           <Description>
             "EverNever" vem de uma expressão em inglês que na forma correta é
-            escrito "Ever Never", que é utilizado quando queremos enfatizar o
+            escrito "Never Ever", que é utilizado quando queremos enfatizar o
             sentido de nunca. Eu utilizo como lema de vida enfatizando a ideia
             de sempre evoluir e nunca regridir. Por isso está escrito dessa forma,
             destacando o "Ever" que traduzindo de forma literal significa sempre
