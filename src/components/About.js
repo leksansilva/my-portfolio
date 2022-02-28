@@ -49,7 +49,7 @@ const CardDescription = styled.div`
   box-shadow: 2px 2px 10px gray;
 `;
 const Description = styled.p`
-  text-align:justify;
+  text-align: justify;
   font-weight: 500;
 `;
 
@@ -61,13 +61,14 @@ const textArray = [
 const About = () => {
   const [invoke, setInvoke] = useState(true);
 
-  const text = () => {
-    textArray.forEach((text, index) => {
+  const text = async () => {
+   await textArray.forEach((text, index) => {
       setTimeout(() => {
+        console.log(index)
         document.getElementById("typedText").innerHTML = text;
       }, 1000 * index);
     });
-    setTimeout(text, 7000);
+    setTimeout(text, 4000);
   };
 
   if (invoke) {
@@ -93,8 +94,9 @@ const About = () => {
             "EverNever" vem de uma expressão em inglês que na forma correta é
             escrito "Never Ever", que é utilizado quando queremos enfatizar o
             sentido de nunca. Eu utilizo como lema de vida enfatizando a ideia
-            de sempre evoluir e nunca regridir. Por isso está escrito dessa forma,
-            destacando o "Ever" que traduzindo de forma literal significa sempre
+            de sempre evoluir e nunca regridir. Por isso está escrito dessa
+            forma, destacando o "Ever" que traduzindo de forma literal significa
+            sempre
           </Description>
         </CardDescription>
       </Right>

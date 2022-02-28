@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import Navbar from "./components/Navbar";
 import Intro from "./components/Intro";
 import About from "./components/About";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import { useState } from "react";
+import theme from "./styles/theme";
 
 const Container = styled.div`
   height: 100vh;
@@ -19,9 +20,8 @@ const IntroShape = styled.div`
   left: 0;
   clip-path: polygon(70% 0, 100% 0, 100% 100%, 48% 100%);
   z-index: -1;
-  background-color: #4da6ff;
+  background-color: ${({theme})=> theme.color.shadow.secondary};
 `;
-
 
 const TopButton = styled.button`
   position: fixed;
@@ -31,13 +31,12 @@ const TopButton = styled.button`
   padding: 5px 10px;
   border-radius: 5px;
   border: 2px solid white;
-  background-color: #0059b3;
+  background-color:${({theme})=> theme.color.main};
   color: white;
   cursor: pointer;
   font-size: 25px;
   display: ${({ visible }) => (visible ? "inline" : "none")};
 `;
-
 
 const AboutShape = styled.div`
   width: 100%;
@@ -47,7 +46,7 @@ const AboutShape = styled.div`
   left: 0;
   clip-path: polygon(0 0, 48% 0, 30% 100%, 0 100%);
   z-index: -1;
-  background-color: #0059b3;
+  background-color: ${({theme})=> theme.color.main};
 `;
 
 const App = () => {
@@ -69,7 +68,7 @@ const App = () => {
   window.addEventListener("scroll", toggleVisible);
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Container>
         <Navbar />
         <Intro />
@@ -82,7 +81,7 @@ const App = () => {
       <TopButton visible={visible} onClick={scrollToBottom}>
         <MdKeyboardArrowUp />
       </TopButton>
-    </>
+    </ThemeProvider>
   );
 };
 
