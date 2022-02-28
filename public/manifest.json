@@ -1,5 +1,5 @@
 {
- "name": "App",
+ "name": "EverNever",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
@@ -36,6 +36,31 @@
    "sizes": "192x192",
    "type": "image\/png",
    "density": "4.0"
+  },
+  {
+    "src": "\/ms_icon-70x70.png",
+    "sizes": "70x70",
+    "type": "image\/png",
+    "purpose": "any maskable"
+  },
+  {
+    "src": "\/ms_icon-144x144.png",
+    "sizes": "144x144",
+    "type": "image\/png",
+    "purpose": "any maskable"
+  },
+  {
+    "src": "\/ms_icon-150x150.png",
+    "sizes": "150x150",
+    "type": "image\/png",
+    "purpose": "any maskable"
+  }
+  ,
+  {
+    "src": "\/ms_icon-310x310.png",
+    "sizes": "310x310",
+    "type": "image\/png",
+    "purpose": "any maskable"
   }
  ]
 }
