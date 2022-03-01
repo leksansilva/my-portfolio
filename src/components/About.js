@@ -8,10 +8,13 @@ const Container = styled.div`
 
 const Left = styled.div`
   width: 50%;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Image = styled.img`
-  width: 80%;
+  width: 60%;
+  margin-top: 50px;
 `;
 
 const Right = styled.div`
@@ -21,10 +24,10 @@ const Right = styled.div`
   justify-content: space-between;
 `;
 
-const Title = styled.span`
+const Title = styled.h1`
   font-weight: 800;
-  font-size: 80px;
-  color: #0059b3;
+  font-size: 70px;
+  color: ${({ theme }) => theme.color.main};
   span {
     color: black;
   }
@@ -34,9 +37,11 @@ const SubTitle = styled.p`
   font-size: 40px;
   width: 80%;
   #typedText {
-    color: #0059b3;
+    color: ${({ theme }) => theme.color.main};
   }
 `;
+
+
 
 const CardDescription = styled.div`
   height: 100%;
@@ -44,13 +49,21 @@ const CardDescription = styled.div`
   border-radius: 10px;
   padding: 20px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 2px 2px 10px gray;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 2px 2px 5px gray;
+  margin-bottom: 60px;
 `;
 const Description = styled.p`
   text-align: justify;
   font-weight: 500;
+  margin-top: 70px;
+`;
+
+const LearnMore = styled.a`
+  text-align: right;
+  color: black;
+  
 `;
 
 const textArray = [
@@ -62,9 +75,8 @@ const About = () => {
   const [invoke, setInvoke] = useState(true);
 
   const text = async () => {
-   await textArray.forEach((text, index) => {
+    await textArray.forEach((text, index) => {
       setTimeout(() => {
-        console.log(index)
         document.getElementById("typedText").innerHTML = text;
       }, 1000 * index);
     });
@@ -72,7 +84,6 @@ const About = () => {
   };
 
   if (invoke) {
-    console.log("oi");
     setInvoke(false);
     text();
   }
@@ -80,7 +91,8 @@ const About = () => {
   return (
     <Container>
       <Left>
-        <Image src={Ideia} />
+        <Image alt="Work illustrations by Storyset" src={Ideia} />
+
       </Left>
       <Right>
         <Title>
@@ -98,6 +110,7 @@ const About = () => {
             forma, destacando o "Ever" que traduzindo de forma literal significa
             sempre
           </Description>
+          <LearnMore href="">Saiba Mais</LearnMore>
         </CardDescription>
       </Right>
     </Container>

@@ -39,7 +39,7 @@ const Description = styled.p`
   width: 60%;
   font-size: 20px;
   text-align: justify;
-  font-weight: 500;
+  font-weight: 400;
   a {
     color: black;
   }
