@@ -41,8 +41,6 @@ const SubTitle = styled.p`
   }
 `;
 
-
-
 const CardDescription = styled.div`
   height: 100%;
   margin: 20px;
@@ -56,14 +54,15 @@ const CardDescription = styled.div`
 `;
 const Description = styled.p`
   text-align: justify;
-  font-weight: 500;
+  font-weight: 400;
+  font-size: 18px;
   margin-top: 70px;
+  color: ${({ theme }) => theme.color.text.tertiary};
 `;
 
 const LearnMore = styled.a`
   text-align: right;
-  color: black;
-  
+  color: ${({ theme }) => theme.color.text.tertiary};
 `;
 
 const textArray = [
@@ -92,7 +91,6 @@ const About = () => {
     <Container>
       <Left>
         <Image alt="Work illustrations by Storyset" src={Ideia} />
-
       </Left>
       <Right>
         <Title>

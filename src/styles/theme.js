@@ -1,6 +1,11 @@
 const theme = {
   color: {
     main: "#0059B3",
+    text: {
+      primary: "#000000",
+      secondary: "#FFFFFF",
+      tertiary: "#555",
+    },
     shadow: {
       primary: "#003973",
       secondary: "#4da6ff",

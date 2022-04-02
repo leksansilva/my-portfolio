@@ -37,11 +37,12 @@ const Title = styled.h1`
 
 const Description = styled.p`
   width: 60%;
-  font-size: 20px;
+  font-size: 1.12rem;
   text-align: justify;
   font-weight: 400;
+  color: ${({ theme }) => theme.color.text.tertiary};
   a {
-    color: black;
+   color: ${({ theme }) => theme.color.text.tertiary};;
   }
 `;
 
@@ -63,11 +64,12 @@ const Button = styled.button`
 
 const Right = styled.div`
   width: 40%;
+  display: flex;
+  align-items: flex-end;
 `;
 
 const Image = styled.img`
   width: 100%;
-  margin-top: 63px;
 `;
 
 const Intro = () => {
@@ -90,11 +92,7 @@ const Intro = () => {
           </a>{" "}
           que permite a escrita de CSS em JavaScript usando Tagged Templates
           Literals e o pacote{" "}
-          <a
-            target="_blank"
-            href="https://reactrouter.com/"
-            rel="noreferrer"
-          >
+          <a target="_blank" href="https://reactrouter.com/" rel="noreferrer">
             React Router
           </a>{" "}
           que facilita a criação de várias páginas e a navegação no React.

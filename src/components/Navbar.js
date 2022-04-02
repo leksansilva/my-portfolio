@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Container = styled.div`
+const Container = styled.header`
   height: 50px;
 `;
 
@@ -65,7 +65,7 @@ const Navbar = () => {
             Ever<span>Never</span>
           </Logo>
           <Menu>
-            <MenuItem>Início</MenuItem>
+            <MenuItem >Início</MenuItem>
             <MenuItem>Sobre</MenuItem>
             <MenuItem>Serviços</MenuItem>
             <MenuItem>Projetos</MenuItem>

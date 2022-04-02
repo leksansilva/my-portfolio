@@ -28,7 +28,7 @@ const Title = styled.h1``;
 
 const Description = styled.p`
   font-size: 20px;
-  color: #555;
+  color: ${({ theme }) => theme.color.text.tertiary};
   text-align: justify;
 `;
 

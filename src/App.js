@@ -43,7 +43,7 @@ const TopButton = styled.button`
   z-index: 2;
   padding: 5px 10px;
   border-radius: 5px;
-  border: 2px solid white;
+  border: 2px solid ${({theme})=>theme.color.text.secondary};
   background-color: ${({ theme }) => theme.color.main};
   color: white;
   cursor: pointer;
