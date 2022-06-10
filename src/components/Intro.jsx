@@ -42,7 +42,7 @@ const Description = styled.p`
   font-weight: 400;
   color: ${({ theme }) => theme.color.text.tertiary};
   a {
-   color: ${({ theme }) => theme.color.text.tertiary};;
+    color: ${({ theme }) => theme.color.text.tertiary};
   }
 `;
 
@@ -72,7 +72,7 @@ const Image = styled.img`
   width: 100%;
 `;
 
-const Intro = () => {
+const Intro = ({ navigateTo }) => {
   return (
     <Container>
       <Left>
@@ -98,7 +98,9 @@ const Intro = () => {
           que facilita a criação de várias páginas e a navegação no React.
         </Description>
         <Info>
-          <Button>OUTROS PROJETOS</Button>
+          <Button onClick={() => navigateTo("portfolio")}>
+            OUTROS PROJETOS
+          </Button>
         </Info>
       </Left>
       <Right>

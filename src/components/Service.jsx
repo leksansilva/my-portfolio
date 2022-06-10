@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import Dev from "../assets/img/Dev.png";
+import { Figma, NextJs, ReactJs } from "../assets/sets";
 import MiniCard from "./MiniCard";
 
 const Container = styled.div`
   display: flex;
+  height: 100%;
 `;
 
 const Left = styled.div`
@@ -14,7 +16,8 @@ const Right = styled.div`
   width: 50%;
 `;
 const Image = styled.img`
-  height: 40%;
+  height: 85%;
+  margin-top: 17%;
 `;
 
 const Wrapper = styled.div`
@@ -37,14 +40,6 @@ const CardContainer = styled.div`
   justify-content: space-around;
 `;
 
-const Figma =
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg";
-
-const ReactJs =
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg";
-
-const NextJs =
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg";
 const Service = () => {
   return (
     <Container>
@@ -53,7 +48,7 @@ const Service = () => {
       </Left>
       <Right>
         <Wrapper>
-          <Title>Alta perfomance e ótimo design</Title>
+          <Title>Alta performance e ótimo design</Title>
           <Description>
             O desenvolvimento do WebSite, App ou WebApp é feito buscando
             representar da melhor forma o negócio e a marca do cliente, com

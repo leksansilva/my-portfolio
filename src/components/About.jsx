@@ -104,7 +104,7 @@ const About = () => {
             "EverNever" vem de uma expressão em inglês que na forma correta é
             escrito "Never Ever", que é utilizado quando queremos enfatizar o
             sentido de nunca. Eu utilizo como lema de vida enfatizando a ideia
-            de sempre evoluir e nunca regridir. Por isso está escrito dessa
+            de sempre evoluir e nunca regredir. Por isso está escrito dessa
             forma, destacando o "Ever" que traduzindo de forma literal significa
             sempre
           </Description>

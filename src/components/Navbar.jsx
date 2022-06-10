@@ -20,7 +20,7 @@ const Left = styled.div`
 
 const Logo = styled.h1`
   font-weight: 800;
-  color: #0059B3;
+  color: #0059b3;
   span {
     color: black;
   }
@@ -39,9 +39,9 @@ const MenuItem = styled.li`
   position: relative;
   top: 0;
   cursor: pointer;
-  :hover{
-    color: #0059B3;
-   
+  :hover {
+    color: #0059b3;
+
     top: -2px;
   }
 `;
@@ -49,14 +49,22 @@ const MenuItem = styled.li`
 const Button = styled.button`
   border: solid 1px white;
   padding: 10px 15px;
-  background-color: #4DA6FF;
-  font-weight:bold;
+  background-color: #4da6ff;
+  font-weight: bold;
   border-radius: 10px;
   cursor: pointer;
   color: white;
 `;
 
-const Navbar = () => {
+export const valuesMenu = [
+  { id: "intro", title: "Início" },
+  { id: "about", title: "Sobre" },
+  { id: "services", title: "Serviços" },
+  { id: "portfolio", title: "Portfólio" },
+  { id: "contact", title: "Contato" },
+];
+
+const Navbar = ({ navigateTo }) => {
   return (
     <Container>
       <Wrapper>
@@ -65,12 +73,11 @@ const Navbar = () => {
             Ever<span>Never</span>
           </Logo>
           <Menu>
-            <MenuItem >Início</MenuItem>
-            <MenuItem>Sobre</MenuItem>
-            <MenuItem>Serviços</MenuItem>
-            <MenuItem>Projetos</MenuItem>
-            <MenuItem>Portfólio</MenuItem>
-            <MenuItem>Contato</MenuItem>
+            {valuesMenu.map((item) => (
+              <MenuItem key={item.id} onClick={() => navigateTo(item.id)}>
+                {item.title}
+              </MenuItem>
+            ))}
           </Menu>
         </Left>
 

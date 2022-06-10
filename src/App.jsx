@@ -1,24 +1,20 @@
+import { useState } from "react";
 import styled, { css, ThemeProvider } from "styled-components";
+
+import theme from "./styles/theme";
+
 import Navbar from "./components/Navbar";
 import Intro from "./components/Intro";
 import About from "./components/About";
-import { MdKeyboardArrowUp } from "react-icons/md";
-import { useState } from "react";
-import theme from "./styles/theme";
 import Service from "./components/Service";
+import TopButton from "./components/TopButton";
+import Portfolio from "./components/Portfolio";
 
 const Container = styled.div`
   height: 100vh;
   overflow: hidden;
   scroll-snap-align: start;
   position: relative;
-`;
-
-const Credits = styled.a`
-  margin-left: 150px;
-  color: rgba(128, 128, 128, 0.5);
-  z-index: 1;
-  position: absolute;
 `;
 
 const Shape = css`
@@ -36,21 +32,6 @@ const IntroShape = styled.div`
   background-color: ${({ theme }) => theme.color.shadow.secondary};
 `;
 
-const TopButton = styled.button`
-  position: fixed;
-  bottom: 50px;
-  right: 50px;
-  z-index: 2;
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: 2px solid ${({theme})=>theme.color.text.secondary};
-  background-color: ${({ theme }) => theme.color.main};
-  color: white;
-  cursor: pointer;
-  font-size: 25px;
-  display: ${({ visible }) => (visible ? "inline" : "none")};
-`;
-
 const AboutShape = styled.div`
   ${Shape}
   clip-path: polygon(0 0, 48% 0, 30% 100%, 0 100%);
@@ -61,50 +42,70 @@ const ServiceShape = styled.div`
   clip-path: polygon(0 0, 30% 0, 30% 100%, 0 100%);
   background-color: ${({ theme }) => theme.color.monochrome.primary};
 `;
+const PortfolioShape = styled.div`
+  ${Shape}
+  clip-path: polygon(0 0, 30% 0, 10% 100%, 0 100%);
+  background-color: ${({ theme }) => theme.color.monochrome.quaternary};
+`;
+const ContactShape = styled.div`
+  ${Shape}
+  clip-path: polygon(0 0, 30% 0, 30% 100%, 0 100%);
+  background-color: ${({ theme }) => theme.color.monochrome.primary};
+`;
 
 const App = () => {
   const [visible, setVisible] = useState(false);
+  const [activeMenuItem, setActiveMenuItem] = useState("");
 
   const toggleVisible = () => {
-    const scrolled = document.documentElement.scrollTop;
-    if (scrolled > 600) {
+    if (window.scrollY > 600) {
       setVisible(true);
-    } else if (scrolled <= 600) {
+    } else if (window.scrollY <= 600) {
       setVisible(false);
     }
+    console.log(window.on());
   };
 
-  const scrollToBottom = () => {
+  const scrollToTop = () => {
     window.scrollTo(0, 0);
+  };
+
+  const navigateTo = (id) => {
+    const element = document.getElementById(id);
+    element.scrollIntoView();
+    setActiveMenuItem(id);
   };
 
   window.addEventListener("scroll", toggleVisible);
 
   return (
     <ThemeProvider theme={theme}>
-      <Container>
-        <Navbar />
-        <Intro />
+      <Container id="intro">
+        <Navbar navigateTo={navigateTo} />
+        <Intro navigateTo={navigateTo} />
         <IntroShape />
       </Container>
-      <Container>
+      <Container id="about">
         <About state={visible} />
         <AboutShape />
-        <Credits
-          target="_blank"
-          rel="noreferrer"
-          href="https://storyset.com/work"
-        >
-          art credits for storyset
-        </Credits>
       </Container>
-      <Container>
+      <Container id="services">
         <Service />
         <ServiceShape />
       </Container>
-      <TopButton visible={visible} onClick={scrollToBottom}>
-        <MdKeyboardArrowUp />
-      </TopButton>
+      <Container id="portfolio">
+        <Portfolio />
+        <PortfolioShape />
+      </Container>
+      <Container id="contact">
+        <ContactShape />
+      </Container>
+      <TopButton
+        visible={visible}
+        onClick={scrollToTop}
+        navigateTo={navigateTo}
+        activeMenuItem={activeMenuItem}
+      />
     </ThemeProvider>
   );
 };
