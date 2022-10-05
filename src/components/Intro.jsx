@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import Alex from "../assets/img/AlexPNG.png";
+import Alex from "../assets/img/Alex2.jpg";
 
 const Emerge = css`
   animation: emerge 2.5s linear;
@@ -60,19 +60,34 @@ const Button = styled.button`
   color: white;
   border: none;
   cursor: pointer;
+  outline: none;
 `;
 
 const Right = styled.div`
   width: 40%;
+  padding: 40px;
   display: flex;
   align-items: flex-end;
+  justify-content: end;
+  overflow: hidden;
 `;
 
 const Image = styled.img`
   width: 100%;
+  opacity: 0.65;
+  z-index: 1;
+
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 0% 100%);
+  transition: clip-path 2s ease-in-out, opacity 2s ease-in-out;
+  ${({ transition }) =>
+    transition &&
+    css`
+      opacity: 1;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    `};
 `;
 
-const Intro = ({ navigateTo }) => {
+const Intro = ({ navigateTo, showMore }) => {
   return (
     <Container>
       <Left>
@@ -104,7 +119,7 @@ const Intro = ({ navigateTo }) => {
         </Info>
       </Left>
       <Right>
-        <Image src={Alex} />
+        <Image src={Alex} transition={showMore} />
       </Right>
     </Container>
   );

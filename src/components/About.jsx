@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
+import Typewriter from "typewriter-effect";
 import Ideia from "../assets/img/Ideia.png";
 
 const Container = styled.div`
@@ -36,7 +37,7 @@ const SubTitle = styled.p`
   margin-top: 40px;
   font-size: 40px;
   width: 80%;
-  #typedText {
+  .Typewriter {
     color: ${({ theme }) => theme.color.main};
   }
 `;
@@ -60,33 +61,12 @@ const Description = styled.p`
   color: ${({ theme }) => theme.color.text.tertiary};
 `;
 
-const LearnMore = styled.a`
-  text-align: right;
-  color: ${({ theme }) => theme.color.text.tertiary};
-`;
-
 const textArray = [
   "<strong>soluções</strong>",
   "<strong>inovações</strong>",
   "<strong>valores</strong>",
 ];
 const About = () => {
-  const [invoke, setInvoke] = useState(true);
-
-  const text = async () => {
-    await textArray.forEach((text, index) => {
-      setTimeout(() => {
-        document.getElementById("typedText").innerHTML = text;
-      }, 1000 * index);
-    });
-    setTimeout(text, 4000);
-  };
-
-  if (invoke) {
-    setInvoke(false);
-    text();
-  }
-
   return (
     <Container>
       <Left>
@@ -97,7 +77,11 @@ const About = () => {
           Ever<span>Never</span>
         </Title>
         <SubTitle>
-          Desenvolvendo <span id="typedText"></span>
+          Desenvolvendo&nbsp;
+          <Typewriter
+            component={"span"}
+            options={{ loop: true, strings: textArray, autoStart: true }}
+          />
         </SubTitle>
         <CardDescription>
           <Description>
@@ -108,7 +92,6 @@ const About = () => {
             forma, destacando o "Ever" que traduzindo de forma literal significa
             sempre
           </Description>
-          <LearnMore href="">Saiba Mais</LearnMore>
         </CardDescription>
       </Right>
     </Container>

@@ -1,8 +1,10 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Container = styled.header`
   height: 50px;
+  z-index: 1;
+  position: relative;
 `;
 
 const Wrapper = styled.div`
@@ -22,7 +24,13 @@ const Logo = styled.h1`
   font-weight: 800;
   color: #0059b3;
   span {
+    transition: color 2s ease-out;
     color: black;
+    ${({ toggleColor }) =>
+      toggleColor &&
+      css`
+        color: white;
+      `};
   }
 `;
 
@@ -36,13 +44,20 @@ const MenuItem = styled.li`
   font-style: 20px;
   font-weight: bold;
   color: grey;
-  position: relative;
-  top: 0;
+
   cursor: pointer;
+
+  transition: color 0.3s ease-out, transform 0.3s ease-in-out;
+  ${({ toggleColor }) =>
+    toggleColor &&
+    css`
+      transition: color 2s ease-in;
+      color: white;
+    `};
   :hover {
     color: #0059b3;
 
-    top: -2px;
+    transform: scale(1.05);
   }
 `;
 
@@ -53,7 +68,13 @@ const Button = styled.button`
   font-weight: bold;
   border-radius: 10px;
   cursor: pointer;
+  outline: none;
   color: white;
+  transition: background-color 0.5s ease-in-out;
+  :hover {
+    color: #4da6ff;
+    background-color: white;
+  }
 `;
 
 export const valuesMenu = [
@@ -64,24 +85,33 @@ export const valuesMenu = [
   { id: "contact", title: "Contato" },
 ];
 
-const Navbar = ({ navigateTo }) => {
+const Navbar = ({ navigateTo, setShowMore, showMore }) => {
   return (
     <Container>
       <Wrapper>
         <Left>
-          <Logo>
+          <Logo toggleColor={showMore}>
             Ever<span>Never</span>
           </Logo>
           <Menu>
             {valuesMenu.map((item) => (
-              <MenuItem key={item.id} onClick={() => navigateTo(item.id)}>
+              <MenuItem
+                key={item.id}
+                toggleColor={showMore}
+                onClick={() => navigateTo(item.id)}
+              >
                 {item.title}
               </MenuItem>
             ))}
           </Menu>
         </Left>
 
-        <Button>MAIS SOBRE MIM</Button>
+        <Button
+          onMouseEnter={() => setShowMore(true)}
+          onMouseLeave={() => setShowMore(false)}
+        >
+          MAIS SOBRE MIM
+        </Button>
       </Wrapper>
     </Container>
   );

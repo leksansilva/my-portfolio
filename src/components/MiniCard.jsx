@@ -12,12 +12,10 @@ const Container = styled.div`
   border-radius: 10px;
   justify-content: space-between;
   gap: 10px;
-  position: relative;
-  top: 0;
-  transition: top 0.2s;
+
+  transition: all 0.2s;
   :hover {
-    top: -10px;
-   
+    transform: scale(1.1);
   }
 `;
 
@@ -27,13 +25,11 @@ const Image = styled.img`
 
 const Text = styled.span`
   text-align: center;
-
 `;
 
 const LearnMore = styled.a`
   text-align: right;
   color: black;
-  
 `;
 
 const MiniCard = ({ img, children }) => {

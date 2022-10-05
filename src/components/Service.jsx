@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Dev from "../assets/img/Dev.png";
-import { Figma, NextJs, ReactJs } from "../assets/sets";
+import { miniCards } from "../assets/sets";
 import MiniCard from "./MiniCard";
 
 const Container = styled.div`
@@ -11,13 +11,15 @@ const Container = styled.div`
 
 const Left = styled.div`
   width: 50%;
+  position: relative;
 `;
 const Right = styled.div`
   width: 50%;
 `;
 const Image = styled.img`
-  height: 85%;
-  margin-top: 17%;
+  width: 70%;
+  position: absolute;
+  bottom: -30px;
 `;
 
 const Wrapper = styled.div`
@@ -56,16 +58,11 @@ const Service = () => {
             explorar, entender e navegar garantindo a melhor experiência.
           </Description>
           <CardContainer>
-            <MiniCard img={Figma}>
-              {" "}
-              Prototipação e direção de design de Sites e App com Figma
-            </MiniCard>
-            <MiniCard img={ReactJs}>
-              Interface de WebSites, WebApps e Apps com React
-            </MiniCard>
-            <MiniCard img={NextJs}>
-              Interface e api de WebSites, WebApps e Apps com NextJs
-            </MiniCard>
+            {miniCards.map((card, index) => (
+              <MiniCard key={index} img={card.img}>
+                {card.text}
+              </MiniCard>
+            ))}
           </CardContainer>
         </Wrapper>
       </Right>
