@@ -3,12 +3,12 @@ import styled, { css, ThemeProvider } from "styled-components";
 
 import theme from "./styles/theme";
 
-import Navbar from "./components/Navbar";
-import Intro from "./components/Intro";
 import About from "./components/About";
+import Intro from "./components/Intro";
+import Navbar from "./components/Navbar";
+import Portfolio from "./components/Portfolio";
 import Service from "./components/Service";
 import TopButton from "./components/TopButton";
-import Portfolio from "./components/Portfolio";
 
 const Container = styled.div`
   height: 100vh;
@@ -114,6 +114,12 @@ const App = () => {
     setActiveMenuItem(id);
   };
   const yearsOld = () => {
+    if (new Date().getMonth() < new Date("2000-06-15T03:24:00").getMonth())
+      return (
+        new Date().getFullYear() -
+        new Date("2000-06-15T03:24:00").getFullYear() -
+        1
+      );
     return (
       new Date().getFullYear() - new Date("2000-06-15T03:24:00").getFullYear()
     );

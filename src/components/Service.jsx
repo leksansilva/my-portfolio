@@ -10,11 +10,11 @@ const Container = styled.div`
 `;
 
 const Left = styled.div`
-  width: 50%;
+  width: 40%;
   position: relative;
 `;
 const Right = styled.div`
-  width: 50%;
+  width: 60%;
 `;
 const Image = styled.img`
   width: 70%;
@@ -39,7 +39,9 @@ const Description = styled.p`
 
 const CardContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
 `;
 
 const Service = () => {

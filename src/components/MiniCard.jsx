@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  width: 130px;
-  height: 200px;
-  padding: 20px;
+  width: 250px;
+  height: 180px;
+  padding: 10px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -12,15 +12,15 @@ const Container = styled.div`
   border-radius: 10px;
   justify-content: space-between;
   gap: 10px;
-
+  background-color: #fff;
   transition: all 0.2s;
   :hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 `;
 
 const Image = styled.img`
-  width: 40%;
+  width: 50px;
 `;
 
 const Text = styled.span`

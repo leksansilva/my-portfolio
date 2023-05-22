@@ -7,6 +7,9 @@ export const ReactJs =
 export const Nodejs =
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg";
 
+export const Python =
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg";
+
 export const miniCards = [
   {
     img: Figma,
@@ -19,5 +22,9 @@ export const miniCards = [
   {
     img: Nodejs,
     text: "Api, integração com outras plataformas e banco de dados com o NodeJs",
+  },
+  {
+    img: Python,
+    text: "Análise e tratamento de dados com o Python",
   },
 ];
