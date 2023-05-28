@@ -91,7 +91,19 @@ export const valuesMenu = [
 ];
 
 const Navbar = ({ navigateTo, setShowMore, showMore }) => {
-  const [blockedLeave, setBlockedLeave] = useState(false);
+  const [blockedMouseEvent, setBlockedMouseEvent] = useState(false);
+
+  const oncClickOpenShape = () => {
+    if (!blockedMouseEvent) {
+      setShowMore(true);
+      setBlockedMouseEvent(true);
+      return;
+    }
+    setShowMore(false);
+    setTimeout(() => {
+      setBlockedMouseEvent(false);
+    }, 2000);
+  };
   return (
     <Container>
       <Wrapper>
@@ -113,11 +125,9 @@ const Navbar = ({ navigateTo, setShowMore, showMore }) => {
         </Left>
 
         <Button
-          onMouseEnter={() => setShowMore(true)}
-          onMouseLeave={() => !blockedLeave && setShowMore(false)}
-          onClick={() => {
-            setBlockedLeave(!blockedLeave);
-          }}
+          onMouseEnter={() => !blockedMouseEvent && setShowMore(true)}
+          onMouseLeave={() => !blockedMouseEvent && setShowMore(false)}
+          onClick={oncClickOpenShape}
         >
           MAIS SOBRE MIM
         </Button>
