@@ -30,14 +30,15 @@ const Text = styled.span`
 const LearnMore = styled.a`
   text-align: right;
   color: black;
+  cursor: pointer;
 `;
 
-const MiniCard = ({ img, children }) => {
+const MiniCard = ({ img, children, link }) => {
   return (
     <Container>
       <Image src={img} />
       <Text>{children}</Text>
-      <LearnMore href="" rel="noopener">
+      <LearnMore href={link} target="_blank">
         Saiba mais
       </LearnMore>
     </Container>

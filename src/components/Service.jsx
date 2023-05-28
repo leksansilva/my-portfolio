@@ -59,7 +59,7 @@ const Service = () => {
           </Description>
           <CardContainer>
             {miniCards.map((card, index) => (
-              <MiniCard key={index} img={card.img}>
+              <MiniCard key={index} link={card.link} img={card.img}>
                 {card.text}
               </MiniCard>
             ))}
