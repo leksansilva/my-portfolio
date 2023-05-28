@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { AiOutlineLoading } from "react-icons/ai";
+import { BsCheckLg } from "react-icons/bs";
+import { IoMdSend } from "react-icons/io";
 import Reaptcha from "reaptcha";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Business from "../assets/img/Business.png";
 
 const Container = styled.div`
@@ -32,7 +35,7 @@ const Title = styled.h1``;
 const Card = styled.div`
   height: max-content;
   margin: 20px auto;
-  width: 500px;
+  width: 550px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,8 +91,9 @@ const FormControl = styled.div`
         color: ${({ theme }) => theme.color.main};
         top: -2px;
         font-size: 12px;
-        padding: 4px;
+        padding: 2px 4px;
         z-index: 2;
+        border-radius: 10px;
       }
     }
   }
@@ -99,14 +103,27 @@ const Button = styled.button`
   margin-top: auto;
   margin-left: auto;
   letter-spacing: 1.5px;
-  padding: 15px 25px;
-  background-color: #0059b3;
+  padding: 15px 30px;
+  width: 160px;
+  height: 50px;
+  background-color: ${({ theme }) => theme.color.main};
   font-weight: bold;
   border-radius: 10px;
-  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: ${({ theme }) => theme.color.text.secondary};
   border: none;
   cursor: pointer;
   outline: none;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  ${({ theme, isValid }) =>
+    !isValid &&
+    css`
+      background-color: ${theme.color.text.secondary};
+      color: ${theme.color.main};
+      outline: 1px solid ${({ theme }) => theme.color.main};
+    `}
 `;
 
 const WrapperButtons = styled.div`
@@ -115,6 +132,44 @@ const WrapperButtons = styled.div`
   padding: 0 10px;
   height: 75px;
   justify-content: space-between;
+`;
+
+const Loading = styled.div`
+  position: relative;
+  .step-1 {
+    animation: rotation 1s infinite linear;
+    position: relative;
+  }
+  .step-2 {
+    animation: rotation 1.5s infinite linear;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  .step-3 {
+    animation: rotation 2s infinite linear;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  @keyframes rotation {
+    0% {
+      transform: rotate(0);
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: rotate(360deg);
+      opacity: 1;
+    }
+  }
 `;
 
 const initialValues = {
@@ -130,31 +185,39 @@ const initialValues = {
     w: 1 / 2,
     Input: (props) => <input {...props} />,
   },
-  phoneNumber: {
+  tel: {
     label: "Telefone",
     value: "",
     w: 1 / 2,
     Input: (props) => <input {...props} />,
   },
-  tel: {
+  description: {
     label: "Me diz o que você quer desenvolver",
     value: "",
     w: 1,
-    Input: (props) => <textarea style={{ height: "150px" }} {...props} />,
+    Input: (props) => (
+      <textarea style={{ height: "150px" }} {...props} minLength="25" />
+    ),
   },
 };
 
 const Contact = () => {
   const [values, setValues] = useState(initialValues);
   const [isValid, setIsvalid] = useState(false);
+  const [loading, settLoading] = useState(false);
+  const [itsSend, setItsSend] = useState(false);
 
   const onChangeValue = (ev) => {
     const { name, value } = ev.target;
     setValues({ ...values, [name]: { ...values[name], value } });
   };
 
-  const sendMessage = () => {};
-
+  const sendMessage = () => {
+    settLoading(true);
+    setItsSend(true);
+    console.log("opa");
+  };
+  console.log("opa", isValid);
   return (
     <Container>
       <Left>
@@ -192,8 +255,23 @@ const Contact = () => {
                   sitekey="6Lc4bEcmAAAAAObaTvnBbRpT9hJ1P8aj3iinUhMM"
                   onVerify={() => setIsvalid(true)}
                 />
-                <Button disabled={!isValid} onClick={sendMessage}>
-                  Enviar
+                <Button
+                  isValid={isValid}
+                  disabled={!isValid}
+                  onClick={sendMessage}
+                >
+                  {itsSend ? "Enviado" : loading ? "Enviando" : "Enviar"}
+                  {itsSend ? (
+                    <BsCheckLg size="15" />
+                  ) : loading ? (
+                    <Loading>
+                      <AiOutlineLoading className="step-1" size="15" />
+                      <AiOutlineLoading className="step-2" size="15" />
+                      <AiOutlineLoading className="step-3" size="15" />
+                    </Loading>
+                  ) : (
+                    <IoMdSend size="15" />
+                  )}
                 </Button>
               </WrapperButtons>
             </CardContent>

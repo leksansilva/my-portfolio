@@ -4,6 +4,7 @@ import styled, { css, ThemeProvider } from "styled-components";
 import theme from "./styles/theme";
 
 import About from "./components/About";
+import AboutMe from "./components/AboutMe";
 import Contact from "./components/Contact";
 import Intro from "./components/Intro";
 import Navbar from "./components/Navbar";
@@ -38,34 +39,6 @@ const IntroShape = styled.div`
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     `}
   background-color: ${({ theme }) => theme.color.shadow.secondary};
-`;
-
-const IntroShapeContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  height: 100%;
-  padding: 20px;
-  font-size: 24px;
-  width: 50%;
-  gap: 10px;
-  .quote {
-    margin-top: 20px;
-    font-style: italic;
-    font-weight: 300;
-  }
-  .click-me {
-    margin-top: 20px;
-    span {
-      border: solid 1px white;
-      padding: 10px 15px;
-      background-color: #4da6ff;
-      font-weight: bold;
-      border-radius: 10px;
-      color: white;
-    }
-  }
-  flex-direction: column;
-  color: white;
 `;
 
 const AboutShape = styled.div`
@@ -114,17 +87,6 @@ const App = () => {
     element.scrollIntoView();
     setActiveMenuItem(id);
   };
-  const yearsOld = () => {
-    if (new Date().getMonth() < new Date("2000-06-15T03:24:00").getMonth())
-      return (
-        new Date().getFullYear() -
-        new Date("2000-06-15T03:24:00").getFullYear() -
-        1
-      );
-    return (
-      new Date().getFullYear() - new Date("2000-06-15T03:24:00").getFullYear()
-    );
-  };
 
   window.addEventListener("scroll", toggleVisible);
 
@@ -138,18 +100,7 @@ const App = () => {
         />
         <Intro navigateTo={navigateTo} showMore={showMore} />
         <IntroShape showMore={showMore}>
-          <IntroShapeContainer>
-            <h1>Alex Santos da Silva, {yearsOld()} anos </h1>
-            <p>Salvador-BA</p>
-            <div className="quote">
-              "Pensamentos levam a sentimentos, sentimentos levam a ações e
-              ações levam a resultados"
-              <sub> - T. Harv Eker</sub>
-            </div>
-            <div className="click-me">
-              Clique no botão e saiba <span>MAIS SOBRE MIM</span>
-            </div>
-          </IntroShapeContainer>
+          <AboutMe />
         </IntroShape>
       </Container>
       <Container id="about">

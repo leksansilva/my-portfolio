@@ -106,11 +106,7 @@ const Intro = ({ navigateTo, showMore }) => {
             Styled Components
           </a>{" "}
           que permite a escrita de CSS em JavaScript usando Tagged Templates
-          Literals e o pacote{" "}
-          <a target="_blank" href="https://reactrouter.com/" rel="noreferrer">
-            React Router
-          </a>{" "}
-          que facilita a criação de várias páginas e a navegação no React.
+          Literals
         </Description>
         <Info>
           <Button onClick={() => navigateTo("portfolio")}>

@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   user-select: none;
   box-sizing: border-box;

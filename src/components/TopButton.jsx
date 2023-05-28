@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import { MdKeyboardArrowUp } from "react-icons/md";
 import { CgEditBlackPoint } from "react-icons/cg";
+import { MdKeyboardArrowUp } from "react-icons/md";
 import { valuesMenu } from "./Navbar";
 
 const Container = styled.div`
@@ -33,19 +33,16 @@ const MiniMenu = styled.span`
   width: 100%;
   height: 0;
   box-sizing: border-box;
-  background-color: white;
-  box-shadow: 1px 1px 3px gray;
+
   border-radius: 5px;
-  padding-right: 10px;
+  padding-right: 20px;
   transition: height 0.5s ease-in-out, padding 1s;
   ${({ hovering }) =>
     hovering &&
     `
-    padding:10px;
    height:8rem;  
 `};
   gap: 0.5em;
-  margin-bottom: 10px;
 `;
 
 const MenuItem = styled.span`
