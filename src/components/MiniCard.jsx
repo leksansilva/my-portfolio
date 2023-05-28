@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  width: 250px;
+  width: 260px;
   height: 180px;
   padding: 10px;
   display: flex;
