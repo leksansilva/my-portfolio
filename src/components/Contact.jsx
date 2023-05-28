@@ -42,7 +42,9 @@ const Card = styled.div`
   box-shadow: 2px 2px 5px gray;
 `;
 
-const CardTitle = styled.h2``;
+const CardTitle = styled.h2`
+  text-align: center;
+`;
 
 const CardContent = styled.div`
   display: flex;
