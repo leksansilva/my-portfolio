@@ -91,6 +91,8 @@ const FormControl = styled.div`
   }
 `;
 
+const Button = styled.button``;
+
 const initialValues = {
   name: {
     label: "Nome",
@@ -126,6 +128,8 @@ const Contact = () => {
     setValues({ ...values, [name]: { ...values[name], value } });
   };
 
+  const sendMessage = () => {};
+
   return (
     <Container>
       <Left>
@@ -159,9 +163,10 @@ const Contact = () => {
                 )
               )}
               <Reaptcha
-                sitekey="6LdFW0cmAAAAAPOpWtlA3R_GZDuTU0fjccE6HzVt"
+                sitekey="6Lc4bEcmAAAAAObaTvnBbRpT9hJ1P8aj3iinUhMM"
                 onVerify={() => {}}
               />
+              <Button onClick={sendMessage}>Enviar</Button>
             </CardContent>
           </Card>
         </Wrapper>
