@@ -38,6 +38,7 @@ const Card = styled.div`
   align-items: center;
   border-radius: 10px;
   padding: 25px;
+  background-color: #ffff;
   box-shadow: 2px 2px 5px gray;
 `;
 
@@ -63,7 +64,7 @@ const FormControl = styled.div`
     background-color: #fff;
     width: max-content;
     padding: 0;
-    z-index: -1;
+    z-index: 0;
     transition: all 0.2s ease-in-out;
     font-size: 14px;
     color: ${({ theme }) => theme.color.text.tertiary};
@@ -71,6 +72,7 @@ const FormControl = styled.div`
   .control-input {
     padding: 10px 20px;
     border-radius: 10px;
+    z-index: 1;
     border: 1px solid #adadad;
     outline: none;
     font-size: 14px;
@@ -85,13 +87,33 @@ const FormControl = styled.div`
         top: -2px;
         font-size: 12px;
         padding: 4px;
-        z-index: 1;
+        z-index: 2;
       }
     }
   }
 `;
 
-const Button = styled.button``;
+const Button = styled.button`
+  margin-top: auto;
+  margin-left: auto;
+  letter-spacing: 1.5px;
+  padding: 15px 25px;
+  background-color: #0059b3;
+  font-weight: bold;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  outline: none;
+`;
+
+const WrapperButtons = styled.div`
+  display: flex;
+  width: 100%;
+  padding: 0 10px;
+  height: 75px;
+  justify-content: space-between;
+`;
 
 const initialValues = {
   name: {
@@ -112,7 +134,7 @@ const initialValues = {
     w: 1 / 2,
     Input: (props) => <input {...props} />,
   },
-  description: {
+  tel: {
     label: "Me diz o que você quer desenvolver",
     value: "",
     w: 1,
@@ -122,6 +144,7 @@ const initialValues = {
 
 const Contact = () => {
   const [values, setValues] = useState(initialValues);
+  const [isValid, setIsvalid] = useState(false);
 
   const onChangeValue = (ev) => {
     const { name, value } = ev.target;
@@ -141,7 +164,7 @@ const Contact = () => {
             Deixa eu lhe apresentar a melhor solução online para o seu negócio!
           </Title>
           <Card>
-            <CardTitle>Fale Conosco!</CardTitle>
+            <CardTitle> Vamos desenvolver uma solução juntos!</CardTitle>
             <CardContent>
               {Object.entries(values).map(
                 ([key, { label, value, w, Input }], index) => (
@@ -162,11 +185,15 @@ const Contact = () => {
                   </FormControl>
                 )
               )}
-              <Reaptcha
-                sitekey="6Lc4bEcmAAAAAObaTvnBbRpT9hJ1P8aj3iinUhMM"
-                onVerify={() => {}}
-              />
-              <Button onClick={sendMessage}>Enviar</Button>
+              <WrapperButtons>
+                <Reaptcha
+                  sitekey="6Lc4bEcmAAAAAObaTvnBbRpT9hJ1P8aj3iinUhMM"
+                  onVerify={() => setIsvalid(true)}
+                />
+                <Button disabled={!isValid} onClick={sendMessage}>
+                  Enviar
+                </Button>
+              </WrapperButtons>
             </CardContent>
           </Card>
         </Wrapper>
