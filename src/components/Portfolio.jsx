@@ -12,20 +12,18 @@ const Container = styled.div`
 const Left = styled.div`
   width: 30%;
 
-  position: relative;
+  height: 100%;
 `;
 
 const Image = styled.img`
   width: 80%;
-  position: absolute;
-  bottom: -50px;
+  margin-top: 90%;
 `;
 
 const Right = styled.div`
   width: 70%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 `;
 
 const Wrapper = styled.div`

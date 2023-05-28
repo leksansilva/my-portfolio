@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 
 const Container = styled.header`
@@ -75,6 +75,11 @@ const Button = styled.button`
     color: #4da6ff;
     background-color: white;
   }
+
+  :active {
+    color: #4da6ff;
+    background-color: white;
+  }
 `;
 
 export const valuesMenu = [
@@ -86,6 +91,7 @@ export const valuesMenu = [
 ];
 
 const Navbar = ({ navigateTo, setShowMore, showMore }) => {
+  const [blockedLeave, setBlockedLeave] = useState(false);
   return (
     <Container>
       <Wrapper>
@@ -108,7 +114,10 @@ const Navbar = ({ navigateTo, setShowMore, showMore }) => {
 
         <Button
           onMouseEnter={() => setShowMore(true)}
-          onMouseLeave={() => setShowMore(false)}
+          onMouseLeave={() => !blockedLeave && setShowMore(false)}
+          onClick={() => {
+            setBlockedLeave(!blockedLeave);
+          }}
         >
           MAIS SOBRE MIM
         </Button>

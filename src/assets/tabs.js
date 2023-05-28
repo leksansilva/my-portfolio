@@ -48,27 +48,35 @@ export const tabs = [
     },
   },
   {
-    category: "",
+    category: "UI/UX Design",
     content: {
-      title: "",
-      image: "",
-      link: "",
+      title: "Protótipo Datum Engenheria",
+      image: require("./img/datum-eng.png"),
+      link: "https://www.figma.com/proto/kO4yp91l5zDEK3OvQLLTKS/DATUM---Prototipagem?node-id=13-6&starting-point-node-id=13%3A6&scaling=scale-down-width",
     },
   },
   {
-    category: "",
+    category: "UI/UX Design",
     content: {
-      title: "",
-      image: "",
-      link: "",
+      title: "Protótipo Calidi Delivery",
+      image: require("./img/calidi-design.png"),
+      link: "https://www.figma.com/proto/chogFXTlwbkIhkQgAj2kwu/Calidi_App_Kaio?node-id=311-21&starting-point-node-id=311%3A21",
     },
   },
   {
-    category: "",
+    category: "UI/UX Design",
     content: {
-      title: "",
-      image: "",
-      link: "",
+      title: "Protótipo Tecnos",
+      image: require("./img/tecnos-proto.png"),
+      link: "https://www.figma.com/proto/YI3bSAb9mjCY8FwgcIwFgW/prototApi?type=design&node-id=317-1114&scaling=scale-down-width&page-id=220%3A142&starting-point-node-id=404%3A1755",
+    },
+  },
+  {
+    category: "UI/UX Design",
+    content: {
+      title: "Protótipo Pizzaria Delivery",
+      image: require("./img/pizzaria-proto.png"),
+      link: "https://www.figma.com/proto/ouxfeESTEnKp8YSjD5ve8q/Pizzaria-Delivery?type=design&node-id=13-88&scaling=scale-down&page-id=0%3A1&starting-point-node-id=13%3A88",
     },
   },
 ];

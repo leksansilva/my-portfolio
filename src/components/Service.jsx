@@ -11,15 +11,13 @@ const Container = styled.div`
 
 const Left = styled.div`
   width: 40%;
-  position: relative;
 `;
 const Right = styled.div`
   width: 60%;
 `;
 const Image = styled.img`
-  width: 70%;
-  position: absolute;
-  bottom: -30px;
+  width: 80%;
+  margin-top: 45.6%;
 `;
 
 const Wrapper = styled.div`

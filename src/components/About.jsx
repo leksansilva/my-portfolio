@@ -1,28 +1,27 @@
 import React from "react";
 import styled from "styled-components";
 import Typewriter from "typewriter-effect";
-import Ideia from "../assets/img/Ideia.png";
+import Idea from "../assets/img/Idea.png";
 
 const Container = styled.div`
   display: flex;
+  height: 100%;
 `;
 
 const Left = styled.div`
   width: 50%;
-  display: flex;
-  flex-direction: column;
+  height: 100%;
 `;
 
 const Image = styled.img`
   width: 60%;
-  margin-top: 50px;
+  margin: 10% 0;
 `;
 
 const Right = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 `;
 
 const Title = styled.h1`
@@ -36,28 +35,25 @@ const Title = styled.h1`
 const SubTitle = styled.p`
   margin-top: 40px;
   font-size: 40px;
+  margin-bottom: 40px;
   width: 80%;
   .Typewriter {
     color: ${({ theme }) => theme.color.main};
   }
 `;
 
-const CardDescription = styled.div`
-  height: 100%;
+const Card = styled.div`
+  height: max-content;
   margin: 20px;
   border-radius: 10px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  padding: 25px;
   box-shadow: 2px 2px 5px gray;
-  margin-bottom: 60px;
 `;
+
 const Description = styled.p`
   text-align: justify;
   font-weight: 400;
   font-size: 18px;
-  margin-top: 70px;
   color: ${({ theme }) => theme.color.text.tertiary};
 `;
 
@@ -70,7 +66,7 @@ const About = () => {
   return (
     <Container>
       <Left>
-        <Image alt="Work illustrations by Storyset" src={Ideia} />
+        <Image alt="Work illustrations by Storyset" src={Idea} />
       </Left>
       <Right>
         <Title>
@@ -83,7 +79,7 @@ const About = () => {
             options={{ loop: true, strings: textArray, autoStart: true }}
           />
         </SubTitle>
-        <CardDescription>
+        <Card>
           <Description>
             "EverNever" vem de uma expressão em inglês que na forma correta é
             escrito "Never Ever", que é utilizado quando queremos enfatizar o
@@ -92,7 +88,7 @@ const About = () => {
             forma, destacando o "Ever" que traduzindo de forma literal significa
             sempre
           </Description>
-        </CardDescription>
+        </Card>
       </Right>
     </Container>
   );

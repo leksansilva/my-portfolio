@@ -7785,7 +7785,7 @@ react-scripts@5.0.0:
   optionalDependencies:
     fsevents "^2.3.2"
 
-react@*, react@^17.0.2, "react@^17.x || ^18.x", react@<18.0.0, "react@>= 16", "react@>= 16.8.0", react@17.0.2:
+react@*, "react@^16 || ^17 || ^18", react@^17.0.2, "react@^17.x || ^18.x", react@<18.0.0, "react@>= 16", "react@>= 16.8.0", react@17.0.2:
   version "17.0.2"
   resolved "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
@@ -7828,6 +7828,11 @@ readdirp@~3.6.0:
   integrity sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==
   dependencies:
     picomatch "^2.2.1"
+
+reaptcha@^1.12.1:
+  version "1.12.1"
+  resolved "https://registry.npmjs.org/reaptcha/-/reaptcha-1.12.1.tgz"
+  integrity sha512-zoppfGKHmo8x4PBmSrIQYQOGgVp1e8wMhr6KbwAdbQ76rSky1DcDCXLWRtBg7HGXn2hw+o+0hknafMB0rnrzZQ==
 
 recursive-readdir@^2.2.2:
   version "2.2.3"

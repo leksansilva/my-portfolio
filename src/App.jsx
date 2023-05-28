@@ -4,6 +4,7 @@ import styled, { css, ThemeProvider } from "styled-components";
 import theme from "./styles/theme";
 
 import About from "./components/About";
+import Contact from "./components/Contact";
 import Intro from "./components/Intro";
 import Navbar from "./components/Navbar";
 import Portfolio from "./components/Portfolio";
@@ -164,6 +165,7 @@ const App = () => {
         <PortfolioShape />
       </Container>
       <Container id="contact">
+        <Contact />
         <ContactShape />
       </Container>
       <TopButton

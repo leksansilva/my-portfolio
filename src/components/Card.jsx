@@ -5,24 +5,22 @@ const Container = styled.a`
   flex-direction: column;
   box-shadow: 2px 2px 5px gray;
   height: 180px;
-  width: 230px;
+  width: 220px;
   border-radius: 5px;
   text-decoration: none;
-  padding-bottom: 20px;
   box-sizing: border-box;
+  overflow: hidden;
 `;
 
 const Image = styled.img`
   width: 100%;
-  height: auto;
-  border-radius: 5px 5px 0 0;
-
-  margin-bottom: auto;
+  height: 110px;
 `;
 
 const Title = styled.h4`
   color: ${({ theme }) => theme.color.main} !important;
   text-align: center;
+  margin: auto 10px;
 `;
 
 const Card = ({ content }) => {
@@ -30,7 +28,6 @@ const Card = ({ content }) => {
     <Container href={content.link} target="_blank">
       <Image src={content.image} alt={content.title} />
       <Title>{content.title}</Title>
-      <p>{content.description}</p>
     </Container>
   );
 };
