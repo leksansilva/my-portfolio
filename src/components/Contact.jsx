@@ -195,9 +195,7 @@ const initialValues = {
     label: "Me diz o que você quer desenvolver",
     value: "",
     w: 1,
-    Input: (props) => (
-      <textarea style={{ height: "150px" }} {...props} minLength="25" />
-    ),
+    Input: (props) => <textarea style={{ height: "150px" }} {...props} />,
   },
 };
 
