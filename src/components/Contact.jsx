@@ -250,6 +250,8 @@ const Contact = () => {
               )}
               <WrapperButtons>
                 <Reaptcha
+                  onExpire={() => setIsvalid(false)}
+                  on
                   sitekey="6Lc4bEcmAAAAAObaTvnBbRpT9hJ1P8aj3iinUhMM"
                   onVerify={() => setIsvalid(true)}
                 />
