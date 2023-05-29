@@ -22,7 +22,7 @@ const Right = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  margin-top: 75%;
+  margin-top: 90%;
 `;
 const Wrapper = styled.div`
   padding: 50px;
@@ -203,7 +203,7 @@ const Contact = () => {
   const [values, setValues] = useState(initialValues);
   const [isValid, setIsvalid] = useState(false);
   const [loading, settLoading] = useState(false);
-  const [itsSend, setItsSend] = useState(false);
+  const [sended, setSended] = useState(false);
 
   const onChangeValue = (ev) => {
     const { name, value } = ev.target;
@@ -212,10 +212,12 @@ const Contact = () => {
 
   const sendMessage = () => {
     settLoading(true);
-    setItsSend(true);
-    console.log("opa");
+    setTimeout(() => {
+      settLoading(false);
+      setSended(true);
+    }, 2000);
   };
-  console.log("opa", isValid);
+
   return (
     <Container>
       <Left>
@@ -251,7 +253,6 @@ const Contact = () => {
               <WrapperButtons>
                 <Reaptcha
                   onExpire={() => setIsvalid(false)}
-                  on
                   sitekey="6Lc4bEcmAAAAAObaTvnBbRpT9hJ1P8aj3iinUhMM"
                   onVerify={() => setIsvalid(true)}
                 />
@@ -260,8 +261,8 @@ const Contact = () => {
                   disabled={!isValid}
                   onClick={sendMessage}
                 >
-                  {itsSend ? "Enviado" : loading ? "Enviando" : "Enviar"}
-                  {itsSend ? (
+                  {sended ? "Enviado" : loading ? "Enviando" : "Enviar"}
+                  {sended ? (
                     <BsCheckLg size="15" />
                   ) : loading ? (
                     <Loading>
