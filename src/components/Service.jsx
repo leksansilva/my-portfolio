@@ -18,6 +18,9 @@ const Right = styled.div`
 const Image = styled.img`
   width: 80%;
   margin-top: 45.6%;
+  z-index: 1;
+  position: relative;
+  pointer-events: none;
 `;
 
 const Wrapper = styled.div`

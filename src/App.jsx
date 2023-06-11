@@ -4,13 +4,13 @@ import styled, { css, ThemeProvider } from "styled-components";
 import theme from "./styles/theme";
 
 import About from "./components/About";
-import AboutMe from "./components/AboutMe";
 import Contact from "./components/Contact";
 import Intro from "./components/Intro";
 import Navbar from "./components/Navbar";
 import Portfolio from "./components/Portfolio";
 import Service from "./components/Service";
 import TopButton from "./components/TopButton";
+import WhoIAm from "./components/WhoIAm";
 
 const Container = styled.div`
   height: 100vh;
@@ -45,37 +45,64 @@ const AboutShape = styled.div`
   ${Shape}
   clip-path: polygon(0 0, 48% 0, 30% 100%, 0 100%);
   background-color: ${({ theme }) => theme.color.main};
+  z-index: 0;
+  transition: clip-path 2s ease-in-out;
+  ${({ showMore }) =>
+    showMore &&
+    css`
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    `}
 `;
 
 const ServiceShape = styled.div`
   ${Shape}
   clip-path: polygon(0 0, 30% 0, 30% 100%, 0 100%);
   background-color: ${({ theme }) => theme.color.monochrome.primary};
+  z-index: 0;
+  transition: clip-path 2s ease-in-out;
+  ${({ showMore }) =>
+    showMore &&
+    css`
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    `}
 `;
 
 const PortfolioShape = styled.div`
   ${Shape}
   clip-path: polygon(0 0, 30% 0, 10% 100%, 0 100%);
   background-color: ${({ theme }) => theme.color.monochrome.quaternary};
+  z-index: 0;
+  transition: clip-path 2s ease-in-out;
+  ${({ showMore }) =>
+    showMore &&
+    css`
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    `}
 `;
 
 const ContactShape = styled.div`
   ${Shape}
   clip-path: polygon(0 0, 10% 0, 50% 100%, 0 100%);
   background-color: ${({ theme }) => theme.color.monochrome.primary};
+  z-index: 0;
+  transition: clip-path 2s ease-in-out;
+  ${({ showMore }) =>
+    showMore &&
+    css`
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    `}
 `;
 
+const InnerHeight = window.innerHeight;
+
 const App = () => {
-  const [visible, setVisible] = useState(false);
+  const [windowScroll, setWindowScroll] = useState(false);
   const [activeMenuItem, setActiveMenuItem] = useState("");
   const [showMore, SetShowMore] = useState(false);
 
   const toggleVisible = (ev) => {
-    if (window.scrollY > 600) {
-      setVisible(true);
-    } else if (window.scrollY <= 600) {
-      setVisible(false);
-    }
+    setWindowScroll(window.scrollY);
+    console.log(window.scrollY);
   };
 
   const scrollToTop = () => {
@@ -100,27 +127,29 @@ const App = () => {
         />
         <Intro navigateTo={navigateTo} showMore={showMore} />
         <IntroShape showMore={showMore}>
-          <AboutMe />
+          <WhoIAm />
         </IntroShape>
       </Container>
       <Container id="about">
-        <About state={visible} />
-        <AboutShape />
+        <About />
+        <AboutShape showMore={showMore && windowScroll >= InnerHeight} />
       </Container>
       <Container id="services">
         <Service />
-        <ServiceShape />
+        <ServiceShape showMore={showMore && windowScroll >= InnerHeight * 2} />
       </Container>
       <Container id="portfolio">
         <Portfolio />
-        <PortfolioShape />
+        <PortfolioShape
+          showMore={showMore && windowScroll >= InnerHeight * 3}
+        />
       </Container>
       <Container id="contact">
-        <Contact />
-        <ContactShape />
+        <Contact showMore={showMore} />
+        <ContactShape showMore={showMore && windowScroll >= InnerHeight * 4} />
       </Container>
       <TopButton
-        visible={visible}
+        visible={windowScroll > 600}
         onClick={scrollToTop}
         navigateTo={navigateTo}
         activeMenuItem={activeMenuItem}

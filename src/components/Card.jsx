@@ -15,6 +15,7 @@ const Container = styled.a`
 const Image = styled.img`
   width: 100%;
   height: 110px;
+  pointer-events: none;
 `;
 
 const Title = styled.h4`

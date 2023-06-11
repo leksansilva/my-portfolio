@@ -76,7 +76,7 @@ const Image = styled.img`
   width: 100%;
   opacity: 0.65;
   z-index: 1;
-
+  pointer-events: none;
   clip-path: polygon(50% 0, 100% 0, 100% 100%, 0% 100%);
   transition: clip-path 2s ease-in-out, opacity 2s ease-in-out;
   ${({ transition }) =>

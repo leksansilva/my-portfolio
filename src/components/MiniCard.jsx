@@ -21,6 +21,7 @@ const Container = styled.div`
 
 const Image = styled.img`
   width: 50px;
+  pointer-events: none;
 `;
 
 const Text = styled.span`

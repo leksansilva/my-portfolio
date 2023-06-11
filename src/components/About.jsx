@@ -16,6 +16,9 @@ const Left = styled.div`
 const Image = styled.img`
   width: 60%;
   margin: 10% 0;
+  z-index: 1;
+  position: relative;
+  pointer-events: none;
 `;
 
 const Right = styled.div`

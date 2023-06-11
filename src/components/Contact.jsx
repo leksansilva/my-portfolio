@@ -23,6 +23,9 @@ const Right = styled.div`
 const Image = styled.img`
   width: 100%;
   margin-top: 90%;
+  z-index: 1;
+  position: relative;
+  pointer-events: none;
 `;
 const Wrapper = styled.div`
   padding: 50px;
@@ -42,6 +45,7 @@ const Card = styled.div`
   border-radius: 10px;
   padding: 25px;
   background-color: #ffff;
+  z-index: ${({ showMore }) => (showMore ? 0 : 1)};
   box-shadow: 2px 2px 5px gray;
 `;
 
@@ -82,7 +86,12 @@ const FormControl = styled.div`
     outline: none;
     font-size: 14px;
     background-color: transparent;
-    resize: none;
+
+    :-webkit-autofill,
+    :-webkit-autofill:hover,
+    :-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    }
 
     &:focus,
     :valid {
@@ -199,7 +208,7 @@ const initialValues = {
   },
 };
 
-const Contact = () => {
+const Contact = ({ showMore }) => {
   const [values, setValues] = useState(initialValues);
   const [isValid, setIsvalid] = useState(false);
   const [loading, settLoading] = useState(false);
@@ -228,7 +237,7 @@ const Contact = () => {
           <Title>
             Deixa eu lhe apresentar a melhor solução online para o seu negócio!
           </Title>
-          <Card>
+          <Card showMore={showMore}>
             <CardTitle> Vamos desenvolver uma solução juntos!</CardTitle>
             <CardContent>
               {Object.entries(values).map(

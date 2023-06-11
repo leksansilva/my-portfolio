@@ -41,7 +41,7 @@ const yearsOld = () => {
 
 const age = yearsOld();
 
-const AboutMe = () => {
+const WhoIAm = () => {
   return (
     <Container>
       <h1>Alex Santos da Silva, {age} anos </h1>
@@ -58,4 +58,4 @@ const AboutMe = () => {
   );
 };
 
-export default AboutMe;
+export default WhoIAm;
