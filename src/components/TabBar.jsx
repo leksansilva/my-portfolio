@@ -38,20 +38,17 @@ const TabTitle = styled.h2`
 
 const TabContent = styled.div`
   display: flex;
-  gap: 10px;
+
   flex-wrap: wrap;
-  justify-content: center;
   overflow: hidden scroll;
   padding: 5px;
   scroll-snap-type: y mandatory;
+  width: 100%;
+  padding: 10px 50px;
 `;
 
 const TabBar = () => {
   const [selectedTab, setSelectedTab] = useState("");
-
-  const tabsFiltered = tabs.filter((tab) =>
-    selectedTab ? tab.category === selectedTab : tab
-  );
 
   return (
     <Container>
@@ -74,8 +71,13 @@ const TabBar = () => {
           ))}
         </TabHeader>
         <TabContent>
-          {tabsFiltered.map((tab, index) => (
-            <Card content={tab.content} key={index} />
+          {tabs.map((tab, index) => (
+            <Card
+              content={tab.content}
+              filtered={!selectedTab ? true : tab.category === selectedTab}
+              key={index}
+              index={index}
+            />
           ))}
         </TabContent>
       </TabContainer>
